@@ -1,0 +1,32 @@
+package edu.escuelaing.arep.client;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class URLScanner {
+
+    /**
+     * Método encargado de escanear una URL
+     * @param site de tipo String[]
+     */
+    public static void scanURL(String site){
+        try{
+            URL siteUrl= new URL("https://localhost:4567/hello");
+
+            System.out.println("Protocol: "+siteUrl.getProtocol());
+            System.out.println("Port: "+siteUrl.getPort());
+            System.out.println("Host: "+siteUrl.getHost());
+            System.out.println("Path: "+siteUrl.getPath());
+            System.out.println("File:"+siteUrl.getFile());
+            System.out.println("Query: "+siteUrl.getQuery());
+            System.out.println("Ref: "+siteUrl.getRef());
+            System.out.println("Authority: "+siteUrl.getAuthority());
+
+        }catch (MalformedURLException ex){
+            Logger.getLogger(URLScanner.class.getName()).log(Level.SEVERE,null,ex);
+        }
+
+    }
+}
