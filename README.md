@@ -72,7 +72,7 @@ En este [video](https://youtu.be/GAX_WP6b8dU) se muestra la aplicación funciona
 * [Maven](https://maven.apache.org/) : Herramienta encargada de la construcción del proyecto y el manejo de dependencias
 * [Spark](https://spark.apache.org/docs/0.9.1/java-programming-guide.html) : Framwework para desarrollo de aplicaciones web
 * [Git](https://git-scm.com/) : Sistema de control de versiones.
-* [CircleCI](https://circleci.com/) : Integración contínua [![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/andresro30/SparkWebCalculadora-Lab2AREP)
+* [CircleCI](https://circleci.com/) : Integración contínua [![CircleCI](https://app.circleci.com/pipelines/github/andresro30/SecuritySpark-LAB7-AREP)
 * [AWS](https://aws.amazon.com/es/education/awseducate/) : Proveedor de servicios cloud 
 * Java : Lenguaje de Programación.
 ## Autor
