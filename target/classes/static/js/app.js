@@ -45,34 +45,28 @@ var app = ( function() {
     };
 
 
-
-    
-    function callOtherDomain() {
-        var invocation = new XMLHttpRequest();
-        var url = 'https://ec2-184-72-124-74.compute-1.amazonaws.com:4567/getRanking';
-        if(invocation) {   
-            invocation.responseType = 'json'; 
-            invocation.open('GET', url, true);
-            //invocation.onreadystatechange = addTable(invocation.responseText);
-            invocation.onload = addTable(JSON.stringify(invocation.responseURL));
-        }
-    };
-
     function addTable(lista){
         console.log(lista);
         var data = lista["data"]["response"];
-        var cont = 0;
-        $("#table > tbody").empty();
-        for(var iterator in data){
-            var team = data[iterator];
-            if(team !== "Error al cargar los datos"){
-                var fila = "<tr>"+
-                "<td>"+team["name"]+"</td>"+
-                "<td>"+team["country"]+"</td>"+
-                "<td>"+team["league"]+"</td>"+
-                "</tr>";
-                $("#table > tbody").append(fila);
-                console.log(fila);
+        
+        if(data === "Error en la conexión con el Servidor"){
+            $("#table > tbody").empty();
+            alert("Error en la conexión con el Servidor");
+        }
+        else{
+            var cont = 0;
+            $("#table > tbody").empty();
+            for(var iterator in data){
+                var team = data[iterator];
+                if(team !== "Error al cargar los datos"){
+                    var fila = "<tr>"+
+                    "<td>"+team["name"]+"</td>"+
+                    "<td>"+team["country"]+"</td>"+
+                    "<td>"+team["league"]+"</td>"+
+                    "</tr>";
+                    $("#table > tbody").append(fila);
+                    console.log(fila);
+                }
             }
         }
     }
@@ -82,8 +76,6 @@ var app = ( function() {
         sendValues: sendValues,
         answerLogin: answerLogin,
         getTeamsValues: getTeamsValues,
-        addTable: addTable,
-        callOtherDomain: callOtherDomain
-
+        addTable: addTable
     };
 })();

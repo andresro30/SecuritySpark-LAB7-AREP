@@ -39,7 +39,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>SecuritySparkServer</mainClass>
+                  <mainClass>SecuritySparkApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>

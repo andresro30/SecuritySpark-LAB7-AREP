@@ -38,7 +38,6 @@ public class SecuritySparkServer {
             response = new JSONObject();
             response.put("response","Error al cargar los datos");
         }
-        System.out.println(response);
         return response;
     }
 

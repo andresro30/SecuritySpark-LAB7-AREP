@@ -33,8 +33,6 @@ public class HttpServer {
             e.printStackTrace();
         }
 
-        System.out.println(trustStore);
-
         TrustManagerFactory tmf = null;
         try {
             tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -55,8 +53,6 @@ public class HttpServer {
         } catch (KeyManagementException e) {
             e.printStackTrace();
         }
-
-        System.out.println(tmf);
     }
 
     public static String readURL(String sitetoread) {
@@ -65,8 +61,6 @@ public class HttpServer {
             URL siteURL = new URL(sitetoread);
             URLConnection urlConnection = siteURL.openConnection();
             System.out.println("-------message-body------");
-            System.out.println(urlConnection);
-            System.out.println(urlConnection.getInputStream());
             InputStreamReader inputStream = new InputStreamReader(urlConnection.getInputStream());
             BufferedReader reader = new BufferedReader(inputStream);
 
@@ -82,6 +76,5 @@ public class HttpServer {
         }
         return "";
     }
-
 
 }

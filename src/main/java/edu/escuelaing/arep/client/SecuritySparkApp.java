@@ -30,15 +30,17 @@ public class SecuritySparkApp
         post("/login",(req, res) -> verificarData(new JSONObject(req.body())));
     }
 
-    private static Object getResponse() {
-        StringBuilder res = new StringBuilder();
+    private static Object getResponse() throws JSONException {
+        String res = "";
+        JSONObject data = null;
         try{
-            res.append(HttpServer.readURL("https://ec2-184-72-124-74.compute-1.amazonaws.com:4567/getRanking"));
+            res += HttpServer.readURL("https://ec2-184-72-124-74.compute-1.amazonaws.com:4567/getRanking");
+            data = new JSONObject(res);
         }catch (Exception e){
-            res = new StringBuilder("Error en la petición");
+            data = new JSONObject("Error en la conexión con el Servidor");
         }
-        System.out.println(res);
-        return null;
+
+        return data;
     }
 
     private static JSONObject verificarData(JSONObject data) throws JSONException {
