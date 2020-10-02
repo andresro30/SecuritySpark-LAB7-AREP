@@ -1,5 +1,7 @@
 # SecuritySpark-LAB7-AREP
-Aplicación web con conexión segura de https que consulta un ranking de equipos de futbol alojado en un servidor. El servidor y el cliente están desplegados en dos máquinas virtuales EC2 de AWS
+Aplicación web conectada que usa un login como medio de autenticación y se conecta a través de servicios Rest a un servidor que ofrece información de un ranking de equipos de futbol, con el objetivo final de mostrar la información ofrecida por el servidor.
+
+Las comunicaciones que tiene la aplciación cumplen con los estándares de seguridad y los principios de integridad, autorización y autentitación. Se implementaron un par de llaves (públicas y privada) y se generó un cretificado para poder realizar conexiones a través del protocolo https entre los dos microservicios, implementados en un ma´quinas virtuales EC2 de AWS.
 
 EC2 Server
 
@@ -11,6 +13,12 @@ EC2 Client
 
 ## Arquitectura
 ![](https://github.com/andresro30/SecuritySpark-LAB7-AREP/blob/master/resources/img/arquitectura.png)
+
+En esta arquitectura hay dos microservicios principales:
+* Cliente: tiene una página de login donde recibe la información inicial del usuario y la envía a través de apiRest al servidor. Recibe información del servidor y la muestra al usuario en la interfaz gráfica. Tiene un sistema de encirptación de contraseñas para garantizar una correcta autenticación a la aplicación. 
+* Servidor : Se encarga de validar la información 
+
+
 
 ## Pre-requisitos
 * [Maven](https://maven.apache.org/) : Herramienta encargada de la construcción del proyecto y el manejo de dependencias
