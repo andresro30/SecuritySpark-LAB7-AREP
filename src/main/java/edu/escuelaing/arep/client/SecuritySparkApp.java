@@ -1,17 +1,10 @@
 package edu.escuelaing.arep.client;
-import edu.escuelaing.arep.server.model.Team;
-import edu.escuelaing.arep.server.Ranking;
-import kong.unirest.HttpResponse;
-import kong.unirest.Unirest;
-import kong.unirest.UnirestException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import static spark.Spark.*;
 import org.apache.commons.codec.digest.DigestUtils;
 
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Hello world!

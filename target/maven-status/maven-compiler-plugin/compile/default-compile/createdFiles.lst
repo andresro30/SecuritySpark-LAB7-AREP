@@ -1,4 +1,5 @@
 edu\escuelaing\arep\client\URLReader.class
+edu\escuelaing\arep\client\HttpServer.class
 edu\escuelaing\arep\server\model\Team.class
 edu\escuelaing\arep\server\Ranking.class
 edu\escuelaing\arep\client\URLScanner.class
