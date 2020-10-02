@@ -54,9 +54,7 @@ lient.SecuritySparkApp
 Nota: Estos pasos indican la forma de compilar el proyecto localmente
 
 ## Visaluización del programa
-En este video se muestra la aplicación funcionando a através de las máquinas de AWS
-
-![](https://github.com/andresro30/SecuritySpark-LAB7-AREP/blob/master/resources/video/Prueba%20Lab%207.mp4)
+En este [video](https://youtu.be/GAX_WP6b8dU) se muestra la aplicación funcionando a através de las máquinas de AWS.
 
 ## Construido con
 * [Maven](https://maven.apache.org/) : Herramienta encargada de la construcción del proyecto y el manejo de dependencias
