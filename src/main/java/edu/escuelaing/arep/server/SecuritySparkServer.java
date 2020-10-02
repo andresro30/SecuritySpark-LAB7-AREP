@@ -19,7 +19,6 @@ public class SecuritySparkServer {
 
     }
 
-
     private static JSONObject getRankig() throws JSONException {
         JSONObject response = new JSONObject();
         Ranking ranking = new Ranking();

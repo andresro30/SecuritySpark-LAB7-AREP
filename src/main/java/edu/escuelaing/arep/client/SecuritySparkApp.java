@@ -1,6 +1,9 @@
 package edu.escuelaing.arep.client;
 import edu.escuelaing.arep.server.model.Team;
 import edu.escuelaing.arep.server.Ranking;
+import kong.unirest.HttpResponse;
+import kong.unirest.Unirest;
+import kong.unirest.UnirestException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,10 +33,19 @@ public class SecuritySparkApp
             res.redirect("index.html");
             return null;
         });
-//        get("/getRanking",(req,res) -> getRankig());
+        get("/getData",(req,res) -> getResponse());
         post("/login",(req, res) -> verificarData(new JSONObject(req.body())));
+    }
 
-
+    private static Object getResponse() {
+        StringBuilder res = new StringBuilder();
+        try{
+            res.append(HttpServer.readURL("https://ec2-184-72-124-74.compute-1.amazonaws.com:4567/getRanking"));
+        }catch (Exception e){
+            res = new StringBuilder("Error en la petición");
+        }
+        System.out.println(res);
+        return null;
     }
 
     private static JSONObject verificarData(JSONObject data) throws JSONException {
@@ -57,29 +69,6 @@ public class SecuritySparkApp
         System.out.println(response);
         return response;
     }
-
-//    private static JSONObject getRankig() throws JSONException {
-//        JSONObject response = new JSONObject();
-//        Ranking ranking = new Ranking();
-//        List<Team> teams = ranking.getTeams();
-//        List<JSONObject> data = new LinkedList<JSONObject>();
-//        try{
-//           for(Team iterator: teams){
-//               JSONObject json = new JSONObject();
-//               json.put("name",iterator.getName());
-//               json.put("country",iterator.getCountry());
-//               json.put("league",iterator.getLeague());
-//               data.add(json);
-//           }
-//            response.put("response",data);
-//        } catch (JSONException e){
-//            e.printStackTrace();
-//            response = new JSONObject();
-//            response.put("response","Error al cargar los datos");
-//        }
-//        System.out.println(response);
-//        return response;
-//    }
 
     /**
      * Método enccargado de definir el puerto por donde corre el programa

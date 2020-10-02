@@ -35,7 +35,8 @@ var app = ( function() {
     };
 
     function getTeamsValues(){
-        axios.get("/getRanking")
+        var url = "/getData"
+        axios.get(url)
             .then(res => {
                 console.log(res);
                 addTable(res);
@@ -43,7 +44,22 @@ var app = ( function() {
             .catch(error => console.log(error));
     };
 
+
+
+    
+    function callOtherDomain() {
+        var invocation = new XMLHttpRequest();
+        var url = 'https://ec2-184-72-124-74.compute-1.amazonaws.com:4567/getRanking';
+        if(invocation) {   
+            invocation.responseType = 'json'; 
+            invocation.open('GET', url, true);
+            //invocation.onreadystatechange = addTable(invocation.responseText);
+            invocation.onload = addTable(JSON.stringify(invocation.responseURL));
+        }
+    };
+
     function addTable(lista){
+        console.log(lista);
         var data = lista["data"]["response"];
         var cont = 0;
         $("#table > tbody").empty();
@@ -66,7 +82,8 @@ var app = ( function() {
         sendValues: sendValues,
         answerLogin: answerLogin,
         getTeamsValues: getTeamsValues,
-        addTable: addTable
+        addTable: addTable,
+        callOtherDomain: callOtherDomain
 
     };
 })();
